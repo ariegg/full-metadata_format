@@ -1,0 +1,16 @@
+
+import fmftestcases; fmftestcases.test_11()
+import fmftestcases; fmftestcases.test_111()
+import fmftestcases; fmftestcases.test_12()
+import fmftestcases; fmftestcases.test_13()
+import fmftestcases; fmftestcases.test_14()
+import fmftestcases; fmftestcases.test_15()
+import fmftestcases; fmftestcases.test_16()
+
+import fmftestcases; fmftestcases.test_21()
+import fmftestcases; fmftestcases.test_22()
+
+import fmftestcases; fmftestcases.test_31()
+import fmftestcases; fmftestcases.test_32()
+
+import fmftestcases; fmftestcases.test_41()
