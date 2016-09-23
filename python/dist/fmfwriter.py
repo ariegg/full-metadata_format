@@ -78,7 +78,7 @@ class FMF_Creator():
 
     def finish(self):
         self._file.close()
-        
+
 
 class FMF_Text(FMF_Creator):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
@@ -88,16 +88,15 @@ class FMF_Text(FMF_Creator):
         self._file.seek(0)
         text = self._file.read()
         return text
-    
+
 
 class FMF_SpooledText(FMF_Text):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         FMF_Creator.__init__(self, tempfile.SpooledTemporaryFile(), title, creator, place, *additionalKeyValueItems, **additionalDictItems)
-        
-        
+
+
 class FMF_File(FMF_Creator):
     def __init__(self, filename, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         outfile = open(filename, 'w')
         FMF_Creator.__init__(self, outfile, title, creator, place, *additionalKeyValueItems, **additionalDictItems)
-        
 

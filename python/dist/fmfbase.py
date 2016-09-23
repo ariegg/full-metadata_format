@@ -95,6 +95,7 @@ class FMF_BASE_Serializer():
             ent += NL + key + ': ' + value
         return ent
 
+
 class FMF_10_Serializer(FMF_BASE_Serializer):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         FMF_BASE_Serializer.__init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems)
@@ -102,12 +103,14 @@ class FMF_10_Serializer(FMF_BASE_Serializer):
     def signature(self):
         return self.comment(' -*- fmf version: 1.0 -*-')
 
+
 class FMF_11_Serializer(FMF_BASE_Serializer):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         FMF_BASE_Serializer.__init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems)
 
     def signature(self):
         return self.comment(' -*- fmf version: 1.1 -*-')
+
 
 class FMF_Serializer(FMF_11_Serializer):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
