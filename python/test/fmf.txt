@@ -1,5 +1,12 @@
+#---------- fmf module settings section ----------
 
-import fmftestcases; fmftestcases.test_11()
+import fmftestcases; fmftestcases.test_01()
+import fmftestcases; fmftestcases.test_02()
+
+#---------- FMF_Serializer section ----------
+
+import fmftestcases; fmftestcases.test_10()
+import fmftestcases; fmftestcases.test_110()
 import fmftestcases; fmftestcases.test_111()
 import fmftestcases; fmftestcases.test_12()
 import fmftestcases; fmftestcases.test_13()
@@ -14,3 +21,21 @@ import fmftestcases; fmftestcases.test_31()
 import fmftestcases; fmftestcases.test_32()
 
 import fmftestcases; fmftestcases.test_41()
+
+#---------- FMF_Text section ----------
+
+import fmftestcases; fmftestcases.test_51()
+import fmftestcases; fmftestcases.test_510()
+import fmftestcases; fmftestcases.test_511()
+import fmftestcases; fmftestcases.test_512()
+import fmftestcases; fmftestcases.test_52()
+import fmftestcases; fmftestcases.test_53()
+import fmftestcases; fmftestcases.test_54()
+import fmftestcases; fmftestcases.test_55()
+import fmftestcases; fmftestcases.test_56()
+
+#---------- FMF_File section ----------
+
+import fmftestcases; fmftestcases.test_61("test_61.fmf")
+import fmftestcases; fmftestcases.test_610("test_610.fmf")
+import fmftestcases; fmftestcases.test_62("test_62.fmf")
