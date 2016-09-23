@@ -65,13 +65,13 @@ class FMF_BASE_Serializer():
         hd += self.__entries__(self._additionalKeyValueItems)
         hd += self.__entries__(self._additionalDictItems.items())
         return hd
-      
+
     def arbitrarySection(self, title, *arbitraryKeyValueItems, **arbitraryDictItems):
         sec = '[' + title + ']'
         sec += self.__entries__(arbitraryKeyValueItems)
         sec += self.__entries__(arbitraryDictItems.items())
         return sec
-    
+
     def tableSection(self, *tableKeyValueDefinitions, **tableDictDefinitions):
         tab = '[*table definitions]'
         tab += self.__entries__(tableKeyValueDefinitions)
@@ -83,7 +83,7 @@ class FMF_BASE_Serializer():
             ds = '[*data definitions: {0}]'.format(name)
             ds += self.__entries__(dataDefinitions)
             ds += NL + '[*data: {0}]'.format(name)
-        else:           
+        else:
             ds = '[*data definitions]'
             ds += self.__entries__(dataDefinitions)
             ds += NL + '[*data]'
@@ -95,21 +95,21 @@ class FMF_BASE_Serializer():
             ent += NL + key + ': ' + value
         return ent
 
-class FMF_10_Serializer(FMF_BASE_Serializer):      
+class FMF_10_Serializer(FMF_BASE_Serializer):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         FMF_BASE_Serializer.__init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems)
 
     def signature(self):
         return self.comment(' -*- fmf version: 1.0 -*-')
 
-
-class FMF_11_Serializer(FMF_BASE_Serializer):      
+class FMF_11_Serializer(FMF_BASE_Serializer):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         FMF_BASE_Serializer.__init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems)
 
     def signature(self):
         return self.comment(' -*- fmf version: 1.1 -*-')
 
-class FMF_Serializer(FMF_11_Serializer):      
+class FMF_Serializer(FMF_11_Serializer):
     def __init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems):
         FMF_11_Serializer.__init__(self, title, creator, place, *additionalKeyValueItems, **additionalDictItems)
+
