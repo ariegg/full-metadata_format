@@ -33,6 +33,8 @@ import fmftestcases; fmftestcases.test_53()
 import fmftestcases; fmftestcases.test_54()
 import fmftestcases; fmftestcases.test_55()
 import fmftestcases; fmftestcases.test_56()
+import fmftestcases; fmftestcases.test_57()
+import fmftestcases; fmftestcases.test_58()
 
 #---------- FMF_File section ----------
 

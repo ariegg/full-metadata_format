@@ -15,6 +15,8 @@
 #   Changelog
 #
 #   1.0    2016-09-23    Initial release.
+#   1.1    2016-09-29    Added addDataSectionLineFromObject(...) and
+#                        addDataSectionLinesFromObjectList(...).
 #
 #   This file contains a set of test cases for the FMF library.
 #
@@ -39,6 +41,7 @@ DICTREFERENCEITEMS = {'reference item 7' : 'Reference value 7', 'reference item 
 ARBITRARYKEYVALUEITEMS = [('arbitrary item 1' , 'Arbitrary value 1'), ('arbitrary item 2' , 'Arbitrary value 2'), ('arbitrary item 3' , 'Arbitrary value 3')]
 ARBITRARYDICTITEMS = {'arbitrary item 4' : 'Arbitrary value 4', 'arbitrary item 5' : 'Arbitrary value 5', 'arbitrary item 6' : 'Arbitrary value 6'}
 
+DATAITEM = ('datakey 1' , 'C 1')
 DATAITEMS = [('datakey 1' , 'C 1'), ('datakey 2' , 'C 2'), ('datakey 3' , 'C 3')]
 
 KEYVALUETABLEITEMS = [('Table 1' , 'T1'), ('Table 2' , 'T2')]
@@ -46,7 +49,7 @@ DICTTABLEITEMS = {'Table 1' : 'T1', 'Table 2' : 'T2'}
 DATAITEMS_T1 = [('datakey 1 (T1)' , 'C 1(T1)'), ('datakey 2 (T1)' , 'C 2(T1)'), ('datakey 3 (T1)' , 'C 3(T1)')]
 DATAITEMS_T2 = [('datakey 1 (T2)' , 'C 1(T2)'), ('datakey 2 (T2)' , 'C 2(T2)')]
 
-#---------- FMF base module settings section ----------
+#---------- FMF base module settings section (fmfbase.py) ----------
 
 def test_01():
     fmf.setCommentPrefix('#')
@@ -57,7 +60,7 @@ def test_02():
     print('Comment reset to \';\'')
 
 
-#---------- FMF_Serializer section ----------
+#---------- FMF_Serializer section (fmfbase.py) ----------
 
 def test_10():
     fmfser = fmf.FMF_Serializer('Test Case 1.1, default fmf with minimum info and without tables.',
@@ -245,7 +248,7 @@ def test_41():
         print("{0:<15d}{1:<15d}".format(i,i**i))
 
 
-#---------- FMF_Text section ----------
+#---------- FMF_Text section (fmfwriter.py) ----------
 
 def test_51():
     fmftextwriter = fmfwriter.FMF_Text('Test Case 5.1, create a basic default FMF text.',
@@ -317,7 +320,41 @@ def test_53():
     fmftextwriter.finish()
 
 def test_54():
-    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.4, create a simple FMF text with one data section using data tuples.',
+    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.4, create a simple FMF text with one data section using data objects.',
+                                'Andreas Riegg',
+                                'Planet Earth',
+                                ('reference item 1', 'Reference value 1'),
+                                ('reference item 2', 'Reference value 2'))
+    fmftextwriter.addSection("section", *ARBITRARYKEYVALUEITEMS)
+    fmftextwriter.startDataSection(None, DATAITEM)
+    fmftextwriter.addCommentLine("{0[1]:<9s}".format(DATAITEM))
+    for i in range(10):
+        fmftextwriter.addDataSectionLineFromObject("{0:<10d}", i**5)
+
+    print(fmftextwriter.text())
+    fmftextwriter.finish()
+
+def test_55():
+    dataList = []
+    for i in range(10):
+        dataList.append(i*1000)
+
+    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.5, create a simple FMF text with one data section using a data object list.',
+                                'Andreas Riegg',
+                                'Planet Earth',
+                                ('reference item 1', 'Reference value 1'),
+                                ('reference item 2', 'Reference value 2'))
+    fmftextwriter.addSection("section", *ARBITRARYKEYVALUEITEMS)
+    fmftextwriter.startDataSection(None, DATAITEM)
+    fmftextwriter.addCommentLine("{0[1]:<9s}".format(DATAITEM))
+    fmftextwriter.addDataSectionLinesFromObjectList("{0:<10d}", dataList)
+
+    print(fmftextwriter.text())
+    fmftextwriter.finish()
+
+
+def test_56():
+    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.6, create a simple FMF text with one data section using data tuples.',
                                 'Andreas Riegg',
                                 'Planet Earth',
                                 ('reference item 1', 'Reference value 1'),
@@ -335,12 +372,12 @@ def test_54():
     print(fmftextwriter.text())
     fmftextwriter.finish()
 
-def test_55():
+def test_57():
     dataMatrix = []
     for i in range(10):
         dataMatrix.append(tuple([i,i**2,i**3]))
 
-    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.5, create a simple FMF text with one data section using a data matrix.',
+    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.7, create a simple FMF text with one data section using a data matrix.',
                                 'Andreas Riegg',
                                 'Planet Earth',
                                 ('reference item 1', 'Reference value 1'),
@@ -353,7 +390,7 @@ def test_55():
     print(fmftextwriter.text())
     fmftextwriter.finish()
 
-def test_56():
+def test_58():
     dataMatrixT1 = []
     for i in range(10):
         dataMatrixT1.append(tuple([i,i**2,i**3]))
@@ -361,7 +398,7 @@ def test_56():
     for i in range(10):
         dataMatrixT2.append(tuple([i,i**i]))
 
-    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.6, create all options FMF text having tables using a data matrix.',
+    fmftextwriter = fmfwriter.FMF_SpooledText('Test Case 5.8, create all options FMF text having tables using a data matrix.',
                                 'Andreas Riegg',
                                 'Planet Earth',
                                 ('reference item 1', 'Reference value 1'),
@@ -385,7 +422,7 @@ def test_56():
     fmftextwriter.finish()
 
 
-#---------- FMF_File section ----------
+#---------- FMF_File section (fmfwriter.py) ----------
 
 def test_61(filename):
     fmffilewriter = fmfwriter.FMF_File(filename, 'Test Case 6.1, create a minimal FMF file, use the provided filename.',
