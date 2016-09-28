@@ -15,6 +15,8 @@
 #   Changelog
 #
 #   1.0    2016-09-23    Initial release.
+#   1.1    2016-09-29    Added addDataSectionLineFromObject(...) and
+#                        addDataSectionLinesFromObjectList(...).
 #
 #   This is the comfort class that does FMF rendering to files and text objects.
 #   Only the concrete classes
@@ -68,6 +70,13 @@ class FMF_Creator():
 
     def addDataSectionLineFromText(self, text):
         print(text, file=self._file)
+
+    def addDataSectionLineFromObject(self, formatString, data):
+        self.addDataSectionLineFromText(formatString.format(data))
+
+    def addDataSectionLinesFromObjectList(self, formatString, dataList):
+        for data in dataList:
+            self.addDataSectionLineFromObject(formatString, data)
 
     def addDataSectionLineFromTuple(self, formatString, dataTuple):
         self.addDataSectionLineFromText(formatString.format(*dataTuple))
