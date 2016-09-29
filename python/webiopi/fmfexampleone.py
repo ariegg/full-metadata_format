@@ -36,9 +36,9 @@
 #   - update VALUELOG.append(...) in loop() so that only the available values are
 #     retrieved from the sensor (most sensors deliver only one value, some
 #     (e.g. BMP085) provide two or more values)
-#   - Update the startDataSection(...) calls to be consistent with the values
+#   - update the startDataSection(...) calls to be consistent with the values
 #     provided by your sensor.
-#   - Update the format string in the addDataSection...(...) calls to be
+#   - update the format string in the addDataSection...(...) calls to be
 #     consistent with the number and type of the logged sensor values.
 #
 #   Simultaneous logging from different sensors is also possible. This is shown

@@ -33,13 +33,13 @@
 #   some sensors that are officially supported by WebIOPi. To do this
 #   - add the sensors you want to use to your config file
 #   - modify DEVICENAMETEMP and DEVICENAMEPRES below to retrieve the
-#   correct sensor instances
-#   - update VALUELOG.append(...) in loop() so that only the available values are
-#     retrieved from the sensors (most sensors deliver only one value, some
+#     correct sensor instances
+#   - update VALUELOG.append(...) in loop() so that only the available values
+#     are retrieved from the sensors (most sensors deliver only one value, some
 #     (e.g. BMP085) provide two or more values)
-#   - Update the startDataSection(...) calls to be consistent with the values
+#   - update the startDataSection(...) calls to be consistent with the values
 #     provided by your sensors.
-#   - Update the format string in the addDataSection...(...) calls to be
+#   - update the format string in the addDataSection...(...) calls to be
 #     consistent with the number and type of the logged sensor values.
 #
 
