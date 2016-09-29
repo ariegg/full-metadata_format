@@ -1,5 +1,6 @@
 [SCRIPTS]
-fmfscript = fmftest.py
+fmfscriptone = fmfexampleone.py
+fmfscripttwo = fmfexampletwo.py
 
 #------------------------------------------------------------------------#
 
@@ -24,6 +25,8 @@ operating-system = WINDOWS7
 
 [DEVICES]
 simulatedSensors = SENSORS
+simulatedTemperature = TEMPERATURE
+simulatedPressure = PRESSURE
 
 #------------------------------------------------------------------------#
 
