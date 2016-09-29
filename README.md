@@ -1,7 +1,10 @@
 # Full-Metadata Format
 Dependency-free Python 2/3 support library for the Full-Metadata Format (FMF). The purpose of this library is to provide a very lightwheight possibility to generate/store FMF content on e.g. lightwheight IoT platforms that support Python 2/3 (e.g. Raspberry Pi). Explicit encoding support is not implemented at the moment, the library will just use the default encoding on the platform it runs on.
 
-**Version 1.1**, just writing of FMF is implemented. Reading FMF is not planned, please use the Pyphant libraries for that (https://github.com/SGWissInfo/pyphant1).
+# Release
+Current version is **1.1**.
+
+Just writing of FMF is implemented. Reading FMF is not planned, please use the Pyphant libraries for that (https://github.com/SGWissInfo/pyphant1).
 
 All Python code that is needed at **runtime** is located in **/python/dist**.
 
