@@ -15,6 +15,7 @@
 #   Changelog
 #
 #   1.0    2016-09-29    Initial release.
+#   1.1    2016-10-26    Added data definitions with tolerance examples.
 #
 #   Description
 #
@@ -152,10 +153,10 @@ def fmfSensLog():
 
     fmfTextWriter.startDataSection(
         None,
-        (DEVICENAME + ' c1', 'temperature/c [degC]'),
-        (DEVICENAME + ' c2', 'pressure/pa [Pa]'),
-        (DEVICENAME + ' c3', 'luminosity/lux [lx]'),
-        (DEVICENAME + ' c4', 'distance/mm [mm]'),
+        (DEVICENAME + ' c1', 'temperature/c [degC] +- 0.5 [degC]' ),
+        (DEVICENAME + ' c2', 'pressure/pa [Pa] +- 10 [Pa]'),
+        (DEVICENAME + ' c3', 'luminosity/lux [lx] \pm 5 [lx]'),
+        (DEVICENAME + ' c4', 'distance/mm [mm] \pm 5.0%'),
         (DEVICENAME + ' c5', 'humidity/percent [%]'),
         (DEVICENAME + ' c6', 'color/rgbhex')
         )
