@@ -27,5 +27,5 @@ correct usage of those features when using this library.
 installation routine is provided. Just copy the 3 files to an appropriate location within your Python 
 project and the library will be ready to use.
 
-**Physical quantities:** This library does currently not have extended suport for generic creation of data (column) definitions. You have to create the values for the column definitions as strings by your own and obey the FMF rules so that standard FMF reading tolls can interpret the columns correct. However, in simple cases just a unique column name and a physical unit in square brackets is needed which not a big task to do.
+**Physical quantities:** This library does currently not have extended support for generic creation of data (column) definitions. You have to create the values for the column definitions including tolerance information as strings by your own and obey the FMF rules so that standard FMF reading tolls can interpret the columns correct. However, in simple cases just a unique column name and a physical unit in square brackets is needed which not a big task to do.
 
