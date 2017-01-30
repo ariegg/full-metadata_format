@@ -29,3 +29,5 @@ project and the library will be ready to use.
 
 **Physical quantities:** This library does currently not have extended support for generic creation of data (column) definitions. You have to create the values for the column definitions including tolerance information as strings by your own and obey the FMF rules so that standard FMF reading tolls can interpret the columns correct. However, in simple cases just a unique column name and a physical unit in square brackets is needed which not a big task to do.
 
+A lightwheight implementation of quantity vectors is now being provided in this part of the WebIOPi drivers repository: https://github.com/ariegg/webiopi-drivers/tree/master/quantity.
+
